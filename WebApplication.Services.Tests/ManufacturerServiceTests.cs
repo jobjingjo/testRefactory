@@ -11,10 +11,11 @@ namespace WebApplication.Services.Tests
     public class ManufacturerServiceTests
     {
 
-        private IManufacturerService _manufacturerService;
+        private readonly IManufacturerService _manufacturerService;
 
         public ManufacturerServiceTests()
         {
+            _manufacturerService =new ManufacturerService();
         }
 
         [SetUp]
