@@ -13,22 +13,26 @@ namespace WebApplication.Services.Tests
             _stringService =new StringService();
         }
 
-        //todo: fix test
         [TestCase("madam",true)]
         [TestCase("step on no pets",true)]
         [TestCase("book",false)]
         public void CanIdentifyPalindromes(string value, bool expected)
         {
+            //Act
             var isPalindrome = _stringService.IsPalindrome(value);
-            Assert.AreEqual(isPalindrome,expected);
+
+            //Assert
+            Assert.AreEqual(expected, isPalindrome);
         }
 
-        //todo: fix test
         [TestCase("welcome to control expert", "expert control to welcome")]
         public void ReverseWordsInSentence(string value, string expected)
         {
+            //Act
             var isPalindrome = _stringService.ReverseWords(value);
-            Assert.AreEqual(isPalindrome,expected);
+
+            //Assert
+            Assert.AreEqual(expected, isPalindrome);
         }
     }
 }
