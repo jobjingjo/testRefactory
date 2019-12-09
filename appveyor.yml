@@ -14,5 +14,5 @@ environment:
        secure: 1UceYDhaW68dS0kfYiprKqGuCrC9y8NK1
 
 after_test: 
-    - dotnet test ./WebApplication.Services.Tests/WebApplication.Services.Tests.csproj --no-build /p:CollectCoverage=true
+    - dotnet test ./WebApplication.Services.Tests/WebApplication.Services.Tests.csproj --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
     - C:\ProgramData\chocolatey\lib\codecov\tools\codecov.exe -f .\WebApplication.Services.Tests\coverage.opencover.xml -t 2d12945c-f44b-4b62-ba0a-e1acd5f73179
