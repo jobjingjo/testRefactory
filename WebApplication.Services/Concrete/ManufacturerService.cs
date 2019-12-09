@@ -11,23 +11,20 @@ namespace WebApplication.Services.Concrete
 {
     public class ManufacturerService : IManufacturerService
     {
-        private readonly DefaultContext _context;
         private readonly IDataProvider _dataProvider;
 
-        public ManufacturerService(DefaultContext context)
+        public ManufacturerService(IDataProvider dataProvider)
         {
-            _context = context ?? throw new ArgumentNullException(nameof(context));
-            _dataProvider =new DataProvider();
+            _dataProvider = dataProvider ?? throw new ArgumentNullException(nameof(dataProvider));
         }
 
         public string GetManufacturerByModel(string model)
         {
-            //https://stackoverflow.com/questions/53945596/entity-framework-core-seed-data
-            //https://docs.microsoft.com/en-us/ef/core/miscellaneous/configuring-dbcontext
-            var foundModel = _context.VehicleModels.FirstOrDefault(x => string.Equals(x.ModelName, model));
+            var foundModel = _dataProvider.FindModelByName(model);
             if (foundModel != null)
             {
-                var manufacturer = _context.Manufacturers.FirstOrDefault(x => x.Id == foundModel.ManufacturerId);
+                var manufacturer = _dataProvider.FindManufacturerById(foundModel.ManufacturerId);
+
                 if (manufacturer != null)
                     return manufacturer.ManufacturerName;
             }
@@ -37,7 +34,7 @@ namespace WebApplication.Services.Concrete
 
         public IList<Manufacturer> GetAll()
         {
-            return _dataProvider.Manufacturers.ToList();
+            return _dataProvider.GetAllManufacturers();
         }
     }
 }

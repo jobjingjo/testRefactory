@@ -18,13 +18,13 @@ namespace WebApplication.Services.Tests
         [SetUp]
         public void Setup()
         {
-            //http://web.archive.org/web/20150404154203/https://www.remondo.net/repository-pattern-example-csharp/
             var options = new DbContextOptionsBuilder<DefaultContext>()
                 .UseInMemoryDatabase(Guid.NewGuid().ToString())
                 .Options;
             _context = new DefaultContext(options);
             _context.Database.EnsureCreated();
-            _manufacturerService = new ManufacturerService(_context);
+            var _dataProvider = new DataProvider(_context);
+            _manufacturerService = new ManufacturerService(_dataProvider);
         }
 
         [TestCase("488GTB", "FERRARI")]

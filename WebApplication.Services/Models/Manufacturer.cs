@@ -8,7 +8,7 @@ namespace WebApplication.Services.Models
     public class Manufacturer
     {
         [Required]
-        public string Id { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         public string ManufacturerName { get; set; }

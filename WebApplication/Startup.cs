@@ -32,15 +32,12 @@ namespace WebApplication
             services.AddAutoMapper(typeof(Startup));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<DefaultContext>(opt =>
-                opt.UseInMemoryDatabase("Sample"));
-            //services.AddControllers();
-            //https://code-maze.com/migrations-and-seed-data-efcore/
-            //services.AddDbContext<DefaultContext>(opts =>
-            //    opts.UseSqlServer(Configuration.GetConnectionString("sqlConnection"),
-            //        options => options.MigrationsAssembly("EFCoreApp")));
-            //https://entityframeworkcore.com/providers-inmemory
-            //https://docs.microsoft.com/id-id/ef/core/miscellaneous/testing/in-memory
+                
+                    opt.UseInMemoryDatabase("Sample")
+                    .UseLazyLoadingProxies()
+                );
             services.AddScoped<IManufacturerService, ManufacturerService>();
+            services.AddScoped<IDataProvider, DataProvider>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,15 +51,6 @@ namespace WebApplication
             app.UseMvc();
 
             app.UseHttpsRedirection();
-
-            //app.UseRouting();
-
-            ////app.UseAuthorization();
-
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapControllers();
-            //});
         }
     }
 }

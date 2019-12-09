@@ -1,11 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebApplication.Services.Models
 {
     public class VehicleModel
     {
         [Required]
-        public string Id { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         public string ModelName { get; set; }
@@ -14,7 +15,7 @@ namespace WebApplication.Services.Models
         public virtual Manufacturer Manufacturer { get; set; }
 
         [Required]
-        public string ManufacturerId { get; set; }
+        public Guid ManufacturerId { get; set; }
         
     }
 }

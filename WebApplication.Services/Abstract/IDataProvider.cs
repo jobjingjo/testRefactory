@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using WebApplication.Services.Models;
 
 namespace WebApplication.Services.Abstract
 {
     public interface IDataProvider
     {
-        List<Manufacturer> Manufacturers { get; }
-        List<VehicleModel> Models { get; }
+        VehicleModel FindModelByName(string model);
+        Manufacturer FindManufacturerById(Guid manufacturerId);
+        IList<Manufacturer> GetAllManufacturers();
     }
 }

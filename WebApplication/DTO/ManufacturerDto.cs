@@ -7,7 +7,7 @@ namespace WebApplication.DTO
 {
     public class ManufacturerDto
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
         public string ManufacturerName { get; set; }
         public int ModelCount { get; set; }
     }
