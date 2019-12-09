@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace WebApplication.DTO
 {
-    public class Manufacturer
+    public class ManufacturerDto
     {
         public string Id { get; set; }
         public string ManufacturerName { get; set; }

@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 using System.Runtime.ExceptionServices;
 using WebApplication.Services.Abstract;
+using WebApplication.Services.Models;
 
 namespace WebApplication.Services.Concrete
 {
@@ -20,12 +22,17 @@ namespace WebApplication.Services.Concrete
             var foundModel = _dataProvider.Models.FirstOrDefault(x => string.Equals(x.ModelName, model));
             if (foundModel != null)
             {
-                var manufaturer = _dataProvider.Manufacturers.FirstOrDefault(x => x.Id == foundModel.ManufacturerId);
-                if (manufaturer != null)
-                    return manufaturer.ManufacturerName;
+                var manufacturer = _dataProvider.Manufacturers.FirstOrDefault(x => x.Id == foundModel.ManufacturerId);
+                if (manufacturer != null)
+                    return manufacturer.ManufacturerName;
             }
 
             return string.Empty;
+        }
+
+        public IList<Manufacturer> GetAll()
+        {
+            return _dataProvider.Manufacturers.ToList();
         }
     }
 }
