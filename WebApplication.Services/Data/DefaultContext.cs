@@ -8,9 +8,12 @@ namespace WebApplication.Services.Data
 {
     public class DefaultContext:DbContext
     {
+
         public DefaultContext(DbContextOptions<DefaultContext> options)
             : base(options)
         { }
+        //https://asp.net-hacker.rocks/2019/01/15/unit-testing-data-access-dotnetcore.html
+        //https://stackoverflow.com/questions/39481353/how-do-i-moq-the-applicationdbcontext-in-net-core
 
         public virtual DbSet<Manufacturer> Manufacturers { get; set; }
         public virtual DbSet<VehicleModel> VehicleModels { get; set; }
