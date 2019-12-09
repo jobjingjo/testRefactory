@@ -2,3 +2,8 @@
 
 # testRefactory
 
+get all
+http://localhost:51015/api/manufacturer
+
+get manufacturer name by model name
+http://localhost:51015/api/manufacturer/{model name}
