@@ -18,14 +18,20 @@ namespace WebApplication.Services.Tests
         [TestCase("book",false)]
         public void CanIdentifyPalindromes(string value, bool expected)
         {
+            //Act
             var isPalindrome = _stringService.IsPalindrome(value);
+
+            //Assert
             Assert.AreEqual(expected, isPalindrome);
         }
 
         [TestCase("welcome to control expert", "expert control to welcome")]
         public void ReverseWordsInSentence(string value, string expected)
         {
+            //Act
             var isPalindrome = _stringService.ReverseWords(value);
+
+            //Assert
             Assert.AreEqual(expected, isPalindrome);
         }
     }

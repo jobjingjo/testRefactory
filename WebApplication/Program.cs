@@ -22,8 +22,7 @@ namespace WebApplication
             {
                 var services = scope.ServiceProvider;
                 var context = scope.ServiceProvider.GetService<DefaultContext>();
-                context.Database.Migrate();
-                //DataSeeder.SeedCountries(context);
+                context.Database.EnsureCreated();
             }
             host.Run();
         }
