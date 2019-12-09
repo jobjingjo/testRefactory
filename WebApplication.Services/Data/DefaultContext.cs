@@ -1,12 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using WebApplication.Services.Models;
 
 namespace WebApplication.Services.Data
 {
-    public class DefaultContext:DbContext
+    public class DefaultContext : DbContext
     {
 
         public DefaultContext(DbContextOptions<DefaultContext> options)
@@ -25,8 +22,8 @@ namespace WebApplication.Services.Data
 
             modelBuilder.Entity<VehicleModel>()
                 .HasOne(b => b.Manufacturer)
-                .WithMany(x=>x.Models)
-                .HasForeignKey(x=>x.ManufacturerId);
+                .WithMany(x => x.Models)
+                .HasForeignKey(x => x.ManufacturerId);
 
             modelBuilder.ApplyConfiguration(new ManufacturerConfiguration());
             modelBuilder.ApplyConfiguration(new VehicleModelConfiguration());

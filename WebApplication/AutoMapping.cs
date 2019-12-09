@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AutoMapper;
 using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
 using WebApplication.DTO;
 using WebApplication.Services.Models;
 

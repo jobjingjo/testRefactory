@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
+using System;
 using WebApplication.Services.Abstract;
 using WebApplication.Services.Concrete;
 using WebApplication.Services.Data;

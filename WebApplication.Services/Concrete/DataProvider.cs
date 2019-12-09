@@ -7,11 +7,12 @@ using WebApplication.Services.Models;
 
 namespace WebApplication.Services.Concrete
 {
-    public class DataProvider: IDataProvider
+    public class DataProvider : IDataProvider
     {
         private readonly DefaultContext _context;
 
-        public DataProvider(DefaultContext context) {
+        public DataProvider(DefaultContext context)
+        {
             _context = context ?? throw new System.ArgumentNullException(nameof(context));
         }
 

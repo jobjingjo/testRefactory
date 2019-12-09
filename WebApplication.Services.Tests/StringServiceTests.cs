@@ -10,12 +10,12 @@ namespace WebApplication.Services.Tests
         [SetUp]
         public void Setup()
         {
-            _stringService =new StringService();
+            _stringService = new StringService();
         }
 
-        [TestCase("madam",true)]
-        [TestCase("step on no pets",true)]
-        [TestCase("book",false)]
+        [TestCase("madam", true)]
+        [TestCase("step on no pets", true)]
+        [TestCase("book", false)]
         public void CanIdentifyPalindromes(string value, bool expected)
         {
             //Act

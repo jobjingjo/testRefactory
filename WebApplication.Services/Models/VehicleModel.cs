@@ -16,6 +16,6 @@ namespace WebApplication.Services.Models
 
         [Required]
         public Guid ManufacturerId { get; set; }
-        
+
     }
 }
