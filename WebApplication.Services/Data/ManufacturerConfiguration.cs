@@ -9,11 +9,6 @@ namespace WebApplication.Services.Data
     {
         public void Configure(EntityTypeBuilder<Manufacturer> builder)
         {
-            //builder.ToTable("Student");
-            //builder.Property(s => s.Age)
-            //    .IsRequired(false);
-            //builder.Property(s => s.IsRegularStudent)
-            //    .HasDefaultValue(true);
             builder.HasData(
                 new Manufacturer { Id = new Guid("E74EA75C-EF51-40E1-BD83-086805F32060"), ManufacturerName = "STARCRAFT" },
                 new Manufacturer { Id = new Guid("33E32587-A5A8-4CF9-86EE-093197C63776"), ManufacturerName = "AUDI" },

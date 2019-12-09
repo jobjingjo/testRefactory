@@ -9,11 +9,6 @@ namespace WebApplication.Services.Data
     {
         public void Configure(EntityTypeBuilder<VehicleModel> builder)
         {
-            //builder.ToTable("Student");
-            //builder.Property(s => s.Age)
-            //    .IsRequired(false);
-            //builder.Property(s => s.IsRegularStudent)
-            //    .HasDefaultValue(true);
             builder.HasData(
                new VehicleModel
                {
