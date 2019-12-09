@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using WebApplication.Services.Abstract;
 using WebApplication.Services.Concrete;
+using WebApplication.Services.Data;
 
 namespace WebApplication
 {
@@ -30,9 +31,15 @@ namespace WebApplication
         {
             services.AddAutoMapper(typeof(Startup));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            //services.AddDbContext<TodoContext>(opt =>
-            //    opt.UseInMemoryDatabase("TodoList"));
+            services.AddDbContext<DefaultContext>(opt =>
+                opt.UseInMemoryDatabase("Sample"));
             //services.AddControllers();
+            //https://code-maze.com/migrations-and-seed-data-efcore/
+            //services.AddDbContext<DefaultContext>(opts =>
+            //    opts.UseSqlServer(Configuration.GetConnectionString("sqlConnection"),
+            //        options => options.MigrationsAssembly("EFCoreApp")));
+            //https://entityframeworkcore.com/providers-inmemory
+            //https://docs.microsoft.com/id-id/ef/core/miscellaneous/testing/in-memory
             services.AddScoped<IManufacturerService, ManufacturerService>();
         }
 

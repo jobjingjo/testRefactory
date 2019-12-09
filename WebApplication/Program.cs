@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -21,6 +22,7 @@ namespace WebApplication
             {
                 var services = scope.ServiceProvider;
                 var context = scope.ServiceProvider.GetService<DefaultContext>();
+                context.Database.Migrate();
                 //DataSeeder.SeedCountries(context);
             }
             host.Run();

@@ -41,6 +41,7 @@ namespace WebApplication.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<ManufacturerDto>> GetAll()
         {
+            //https://stackoverflow.com/questions/7741307/automapper-list-to-int-count
             //http://localhost:51015/api/manufacturer/
             //https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-3.1&tabs=visual-studio
             //https://code-maze.com/automapper-net-core/
