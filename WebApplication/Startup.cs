@@ -8,7 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using WebApplication.Services.Abstract;
 using WebApplication.Services.Concrete;
 using WebApplication.Services.Data;
-
+using Microsoft.Extensions.Hosting;
 namespace WebApplication
 {
     public class Startup
@@ -24,7 +24,7 @@ namespace WebApplication
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper(typeof(Startup));
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddDbContext<DefaultContext>(opt =>
 
                     opt.UseInMemoryDatabase("Sample")
@@ -35,7 +35,7 @@ namespace WebApplication
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
