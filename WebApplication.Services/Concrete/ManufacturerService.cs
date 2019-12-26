@@ -17,7 +17,7 @@ namespace WebApplication.Services.Concrete
         public string GetManufacturerByModel(string model)
         {
             var foundModel = _dataProvider.FindModelByName(model);
-            if (foundModel != null)
+            if (foundModel == null)
             {
                 return string.Empty;
             }
