@@ -14,7 +14,6 @@ namespace WebApplication.Services.Tests
     [TestFixture]
     public class DataProviderTests
     {
-        private DefaultContext _context;
         private Manufacturer _manufacturer1;
         private Manufacturer _manufacturer2;
         private List<Manufacturer> _manufacturers;
@@ -27,32 +26,30 @@ namespace WebApplication.Services.Tests
             var options = new DbContextOptionsBuilder<DefaultContext>()
                 .UseInMemoryDatabase(Guid.NewGuid().ToString())
                 .Options;
-            _context = new DefaultContext(options);
-
-
-            _manufacturer1 = new Manufacturer()
+            var _context = new DefaultContext(options);
+            _manufacturer1 = new Manufacturer
             {
                 Id = Guid.NewGuid(),
                 ManufacturerName = "Mock1"
             };
-            _manufacturer2 = new Manufacturer()
+            _manufacturer2 = new Manufacturer
             {
                 Id = Guid.NewGuid(),
                 ManufacturerName = "Mock2"
             };
-            _manufacturers = new List<Manufacturer>()
+            _manufacturers = new List<Manufacturer>
               {
                 _manufacturer1,
                 _manufacturer2
               };
 
-            _vehicleModel1 = new VehicleModel()
+            _vehicleModel1 = new VehicleModel
             {
                 Id = Guid.NewGuid(),
                 ManufacturerId = _manufacturer1.Id,
                 ModelName = "MockModel1"
             };
-            var vehicleModels = new List<VehicleModel>()
+            var vehicleModels = new List<VehicleModel>
               {
                 _vehicleModel1
               };
@@ -69,7 +66,7 @@ namespace WebApplication.Services.Tests
             var result = _dataProvider.FindManufacturerById(_manufacturer1.Id);
 
             //Assert
-            Assert.AreEqual(_manufacturer1, _manufacturer1);
+            Assert.AreEqual(result, _manufacturer1);
         }
 
         [TestCase]

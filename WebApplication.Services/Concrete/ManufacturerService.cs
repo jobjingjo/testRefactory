@@ -19,10 +19,14 @@ namespace WebApplication.Services.Concrete
             var foundModel = _dataProvider.FindModelByName(model);
             if (foundModel != null)
             {
-                var manufacturer = _dataProvider.FindManufacturerById(foundModel.ManufacturerId);
+                return string.Empty;
+            }
 
-                if (manufacturer != null)
-                    return manufacturer.ManufacturerName;
+            var manufacturer = _dataProvider.FindManufacturerById(foundModel.ManufacturerId);
+
+            if (manufacturer != null)
+            {
+                return manufacturer.ManufacturerName;
             }
 
             return string.Empty;

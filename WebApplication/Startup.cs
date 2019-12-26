@@ -24,7 +24,9 @@ namespace WebApplication
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper(typeof(Startup));
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            services.AddMvc(
+                option => option.EnableEndpointRouting = false
+                ).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddDbContext<DefaultContext>(opt =>
 
                     opt.UseInMemoryDatabase("Sample")

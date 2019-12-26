@@ -10,7 +10,6 @@ namespace WebApplication.Services.Tests
     [TestFixture]
     public class ManufacturerServiceTests
     {
-        private DefaultContext _context;
         private IManufacturerService _manufacturerService;
 
         [SetUp]
@@ -19,7 +18,7 @@ namespace WebApplication.Services.Tests
             var options = new DbContextOptionsBuilder<DefaultContext>()
                 .UseInMemoryDatabase(Guid.NewGuid().ToString())
                 .Options;
-            _context = new DefaultContext(options);
+            var _context = new DefaultContext(options);
             _context.Database.EnsureCreated();
             var _dataProvider = new DataProvider(_context);
             _manufacturerService = new ManufacturerService(_dataProvider);
